@@ -1,0 +1,221 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://ui/grabber highlight.png" type="Texture" id=2]
+[ext_resource path="res://ui/grabber disabled.png" type="Texture" id=3]
+[ext_resource path="res://ui/grabber.png" type="Texture" id=4]
+[ext_resource path="res://ui/slider bg.png" type="Texture" id=5]
+[ext_resource path="res://ui/ChevyRay - Pinch Mono.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="StyleBoxFlat" id=6]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 8, 16 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 7
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=5]
+default_font = SubResource( 9 )
+VSlider/icons/grabber = ExtResource( 4 )
+VSlider/icons/grabber_disabled = ExtResource( 3 )
+VSlider/icons/grabber_highlight = ExtResource( 2 )
+VSlider/icons/tick = null
+VSlider/styles/grabber_area = SubResource( 6 )
+VSlider/styles/grabber_area_highlight = SubResource( 8 )
+VSlider/styles/slider = SubResource( 7 )
+
+[sub_resource type="AudioStreamGenerator" id=1]
+mix_rate = 48000.0
+buffer_length = 0.05
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 5 )
+script = ExtResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_right = 128.0
+margin_bottom = 13.0
+text = "Play"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 17.0
+margin_right = 128.0
+margin_bottom = 92.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 20.0
+margin_right = 28.0
+margin_bottom = 75.0
+
+[node name="RatioSlider" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 8.0
+margin_bottom = 64.0
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 16.0
+step = 0.5
+value = 1.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 8.0
+margin_bottom = 75.0
+text = "R"
+align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 32.0
+margin_right = 40.0
+margin_bottom = 75.0
+
+[node name="DepthSlider" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 8.0
+margin_bottom = 64.0
+size_flags_vertical = 3
+max_value = 10.0
+step = 0.01
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 68.0
+margin_right = 8.0
+margin_bottom = 75.0
+text = "D"
+align = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 44.0
+margin_right = 52.0
+margin_bottom = 75.0
+
+[node name="NoteSlider" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_right = 8.0
+margin_bottom = 64.0
+size_flags_vertical = 3
+min_value = -24.0
+max_value = 24.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 68.0
+margin_right = 8.0
+margin_bottom = 75.0
+text = "N"
+align = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 56.0
+margin_right = 68.0
+margin_bottom = 75.0
+
+[node name="LFO Frequency" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer4"]
+margin_right = 8.0
+margin_bottom = 64.0
+size_flags_vertical = 3
+max_value = 24.0
+step = 0.1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer4"]
+margin_top = 68.0
+margin_right = 12.0
+margin_bottom = 75.0
+text = "LF"
+align = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 72.0
+margin_right = 84.0
+margin_bottom = 75.0
+
+[node name="LFO Depth" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer5"]
+margin_right = 8.0
+margin_bottom = 64.0
+size_flags_vertical = 3
+min_value = -24.0
+max_value = 24.0
+step = 0.1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer5"]
+margin_top = 68.0
+margin_right = 12.0
+margin_bottom = 75.0
+text = "LD"
+align = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 88.0
+margin_right = 96.0
+margin_bottom = 75.0
+
+[node name="Attack" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer6"]
+margin_right = 8.0
+margin_bottom = 64.0
+size_flags_vertical = 3
+min_value = 0.01
+max_value = 2.0
+step = 0.01
+value = 0.01
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer6"]
+margin_top = 68.0
+margin_right = 8.0
+margin_bottom = 75.0
+text = "A"
+align = 1
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 100.0
+margin_right = 108.0
+margin_bottom = 75.0
+
+[node name="Release" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer7"]
+margin_right = 8.0
+margin_bottom = 64.0
+size_flags_vertical = 3
+min_value = 0.01
+max_value = 2.0
+step = 0.01
+value = 0.01
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer7"]
+margin_top = 68.0
+margin_right = 8.0
+margin_bottom = 75.0
+text = "R"
+align = 1
+
+[node name="Oscilloscope" type="ColorRect" parent="VBoxContainer"]
+modulate = Color( 1, 1, 1, 0.466667 )
+margin_top = 96.0
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 32 )
+color = Color( 0, 0, 0, 1 )
+
+[connection signal="button_down" from="VBoxContainer/Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="VBoxContainer/Button" to="." method="_on_Button_button_up"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer/RatioSlider" to="." method="_on_RatioSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer2/DepthSlider" to="." method="_on_DepthSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer3/NoteSlider" to="." method="_on_NoteSlider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer4/LFO Frequency" to="." method="_on_LFO_Frequency_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer5/LFO Depth" to="." method="_on_LFO_Depth_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer6/Attack" to="." method="_on_Attack_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer7/Release" to="." method="_on_Release_value_changed"]
