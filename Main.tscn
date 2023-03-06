@@ -63,8 +63,8 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 20.0
-margin_right = 28.0
+margin_left = 18.0
+margin_right = 30.0
 margin_bottom = 75.0
 
 [node name="RatioSlider" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -73,19 +73,18 @@ margin_bottom = 64.0
 size_flags_vertical = 3
 min_value = 1.0
 max_value = 16.0
-step = 0.5
 value = 1.0
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 68.0
-margin_right = 8.0
+margin_right = 12.0
 margin_bottom = 75.0
-text = "R"
+text = "RA"
 align = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 32.0
-margin_right = 40.0
+margin_left = 34.0
+margin_right = 46.0
 margin_bottom = 75.0
 
 [node name="DepthSlider" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
@@ -97,34 +96,14 @@ step = 0.01
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 margin_top = 68.0
-margin_right = 8.0
+margin_right = 12.0
 margin_bottom = 75.0
-text = "D"
-align = 1
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 44.0
-margin_right = 52.0
-margin_bottom = 75.0
-
-[node name="NoteSlider" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
-margin_right = 8.0
-margin_bottom = 64.0
-size_flags_vertical = 3
-min_value = 24.0
-max_value = 72.0
-value = 24.0
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
-margin_top = 68.0
-margin_right = 8.0
-margin_bottom = 75.0
-text = "N"
+text = "DE"
 align = 1
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 56.0
-margin_right = 68.0
+margin_left = 50.0
+margin_right = 62.0
 margin_bottom = 75.0
 
 [node name="LFO Frequency" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer4"]
@@ -142,8 +121,8 @@ text = "LF"
 align = 1
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 72.0
-margin_right = 84.0
+margin_left = 66.0
+margin_right = 78.0
 margin_bottom = 75.0
 
 [node name="LFO Depth" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer5"]
@@ -162,28 +141,29 @@ text = "LD"
 align = 1
 
 [node name="VBoxContainer6" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 88.0
-margin_right = 96.0
+margin_left = 82.0
+margin_right = 94.0
 margin_bottom = 75.0
 
 [node name="Attack" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer6"]
 margin_right = 8.0
 margin_bottom = 64.0
 size_flags_vertical = 3
+min_value = 0.01
 max_value = 2.0
 step = 0.01
 value = 0.01
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer6"]
 margin_top = 68.0
-margin_right = 8.0
+margin_right = 12.0
 margin_bottom = 75.0
-text = "A"
+text = "AT"
 align = 1
 
 [node name="VBoxContainer7" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 100.0
-margin_right = 108.0
+margin_left = 98.0
+margin_right = 110.0
 margin_bottom = 75.0
 
 [node name="Release" type="VSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer7"]
@@ -197,9 +177,9 @@ value = 0.01
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer7"]
 margin_top = 68.0
-margin_right = 8.0
+margin_right = 12.0
 margin_bottom = 75.0
-text = "R"
+text = "RE"
 align = 1
 
 [node name="Oscilloscope" type="ColorRect" parent="VBoxContainer"]
@@ -222,8 +202,8 @@ align = 2
 [connection signal="button_up" from="VBoxContainer/Button" to="." method="_on_Button_button_up"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer/RatioSlider" to="." method="_on_RatioSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer2/DepthSlider" to="." method="_on_DepthSlider_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer3/NoteSlider" to="." method="_on_NoteSlider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer4/LFO Frequency" to="." method="_on_LFO_Frequency_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer5/LFO Depth" to="." method="_on_LFO_Depth_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer6/Attack" to="." method="_on_Attack_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer7/Release" to="." method="_on_Release_value_changed"]
+[connection signal="gui_input" from="VBoxContainer/Oscilloscope" to="." method="_on_Oscilloscope_gui_input"]
