@@ -1,3 +1,9 @@
+bugs:
+  ☐ previous note information sometimes slips into the next note
+    ☐ pitch
+    ☐ sound data
+    ☐ e.g. run an arp on the keystep, and wait a bit
+
 synths:
   ✔ note triggering and envelope not working correctly yet @done (23-03-05 17:24)
     ☐ it's a lot better! still a bit clicky?  
@@ -11,6 +17,9 @@ fm synth:
 
 sub synth:
   ☐ low pass filter
+    ☐ godot effects filter:
+    https://github.com/godotengine/godot/blob/1d14c054a12dacdc193b589e4afb0ef319ee2aae/servers/audio/audio_filter_sw.h
+    https://github.com/godotengine/godot/blob/1d14c054a12dacdc193b589e4afb0ef319ee2aae/servers/audio/audio_filter_sw.cpp
   ☐ resonance
 
 sequencer:
